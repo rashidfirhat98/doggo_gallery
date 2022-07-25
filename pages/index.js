@@ -11,15 +11,15 @@ function DoggoHomepage({ breeds }) {
     <Container>
       <Row>
         <Col>
-          <h1>Hello There</h1>
-          <h2>Welcome to the Doggo Gallery</h2>
-          <Button
-            onClick={() => {
-              setshowList(true);
-            }}
-          >
-            Get Started
-          </Button>
+          <div className="d-flex justify-content-center pt-5">
+            <Button
+              onClick={() => {
+                setshowList(!showList);
+              }}
+            >
+              {showList ? "Hide List" : "Get Started"}
+            </Button>
+          </div>
         </Col>
       </Row>
       {showList && (
