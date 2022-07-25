@@ -38,7 +38,7 @@ export default function DoggoProfile({ breedDetail }) {
             <Button>Back</Button>
           </Link>
           <Link as={`/${currentBreed}`} href="/[dogs]">
-            <Button>Show Another Image</Button>
+            <Button>Show Random Image</Button>
           </Link>
         </Col>
       </Row>
