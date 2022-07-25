@@ -6,23 +6,39 @@ import { Button, Col, Container, Row } from "react-bootstrap";
 
 export default function DoggoProfile({ breedDetail }) {
   const router = useRouter();
+  const currentBreed = router.query.dogs;
+
+  const capitalize = (str) => {
+    const lowerCased = str.toLowerCase();
+    return lowerCased.charAt(0).toUpperCase() + lowerCased.slice(1);
+  };
 
   return (
     <Container>
       <Row>
-        <Col className="d-flex justify-content-center">
-          <h1>{router.query.dogs}</h1>
+        <Col className="d-flex justify-content-center pt-3">
+          <h1>{capitalize(router.query.dogs)}</h1>
         </Col>
       </Row>
       <Row>
         <Col className="d-flex justify-content-center">
-          <Image width={240} height={240} className="img-thumbnail" src={breedDetail.message} />
+          <div className="p-3">
+            <Image
+              width={360}
+              height={360}
+              objectFit="cover"
+              src={breedDetail.message}
+            />
+          </div>
         </Col>
       </Row>
       <Row>
-        <Col className="d-flex justify-content-left">
+        <Col className="d-flex justify-content-between">
           <Link href="/">
             <Button>Back</Button>
+          </Link>
+          <Link as={`/${currentBreed}`} href="/[dogs]">
+            <Button>Show Another Image</Button>
           </Link>
         </Col>
       </Row>

@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function BreedsList({ breeds }) {
   return (
-    <div className="d-flex justify-content-center m-2 flex-wrap">
+    <div className="d-flex justify-content-center p-5 flex-wrap">
       {Object.keys(breeds).map((breed) => {
         return (
           <li key={breed} className="p-1">
