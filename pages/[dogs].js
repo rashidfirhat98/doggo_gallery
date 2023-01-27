@@ -48,7 +48,7 @@ export default function DoggoProfile({ breedDetail }) {
 
 export async function getStaticPaths() {
   const response = await axios.get("https://dog.ceo/api/breeds/list/all");
-
+  console.log(response);
   const paths = Object.keys(response.data.message).map((breed) => {
     return {
       params: { dogs: breed.toString() },
@@ -61,10 +61,9 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps(context) {
-  console.log(context);
   const response = await axios.get(
     `https://dog.ceo/api/breed/${context.params.dogs}/images/random`
   );
-
+  console.log(response);
   return { props: { breedDetail: response.data } };
 }
